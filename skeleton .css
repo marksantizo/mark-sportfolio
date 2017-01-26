@@ -12,7 +12,6 @@ $color3: white;
 $bar-height: 6px;
 $bar-width: 36px;
 
-
 body {
     display: flex;
     flex-flow: row wrap;
