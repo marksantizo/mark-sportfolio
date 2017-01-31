@@ -1,134 +1,116 @@
-hello DVC {
+body{
+	font-family: 'Noto Sans', sans-serif;
+	margin:0px;
+	background-color: #CC99FF;
+	height: 200vh;
+}
+header{
+	width:100%; 
+	background:#131313; 
+}
+nav{
+	width:100%; 
+	background:#1d1f20; 
+	height:50px; 
+	position: fixed;
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+}
+.hamburger{
+  background:none;
+  position:absolute;
+  top:0;
+  right:0;
+  line-height:45px;
+  padding:0px 15px 0px 15px;
+  color:#fff;
+  border:0;
+  font-size:1.4em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+}
+.cross{
+  background:none;
+  position:absolute;
+  top:0px;
+  right:0;
+  padding:0px 15px 0px 15px;
+  color:#fff;
+  border:0;
+  font-size:3em;
+  line-height:65px;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+}
+/* If you're not sure how to modify these different CSS properties, check out http://www.w3schools.com/cssref/ and just use CTRL+F to search for the term */
+.menu{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#131313;  position:absolute; text-align:center;}
+.menu ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}
+.menu li {display: block;   padding:15px 0 15px 0; border-bottom:#1d1f20 1px solid;}
+.menu li:hover{display: block;    background:#181818; padding:15px 0 15px 0; border-bottom:#1d1f20 1px solid;}
+.menu ul li a { text-decoration:none;  margin: 0px; color:#fff;}
+.menu ul li a:hover {  color: #fff; text-decoration:none;}
+.menu a{text-decoration:none; color:white;}
+.menu a:hover{text-decoration:none; color:white;
+}
+.headerbar {
   text-align: center;
-  font-weight: 100;
+  font-size: 2em;
+  font-weight: bold;
+  background-image: url(../images/DVCWolfLogo.jpg);
+  height: 330px;
 }
-
-@import url(http://fonts.googleapis.com/css?family=Raleway:500);
-
-$color1: #C8DAE6;
-$color2: #7482A5;
-$color3: white;
-
-$bar-height: 6px;
-$bar-width: 36px;
-
-body {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: center;
-    background-color: $color1;
+.navbar {
+  width: 100%;
+  position: absolute;
+  line-height: 50px;
+  left: 0;
+  text-align: center;
+  background-color: #0c0c0c;
+  color: #fff;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 1.5em;
+  font-weight: bold;
+  z-index: 9000;
 }
-
-
-*, *:before, *:after {
-    box-sizing: border-box;
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0d0d0d;
+  z-index: 9000;
 }
-
-
-.menu-wrapper {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    margin-top: 100px;
+.container {
+  padding-top: 70px;
 }
-
-// Menu
-.menu {
-    position: relative;
-    width: $bar-width;
-    height: $bar-height;
-    background-color: $color2;
-    user-select: none;
-    transition: all 0.25s ease-in-out;
-    cursor: pointer;
-    margin: 5px;
-    color: $color2;
-    -webkit-perspective: 1000;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform:translate3d(0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    
-    label {
-        cursor: pointer;
-        position: absolute;
-        font-family: 'Raleway', sans-serif;
-        font-size: 40px;
-        line-height: $bar-height*5;
-        top: -$bar-height*2;
-        left: $bar-width + $bar-height*2;
-    }
-    
-    &:hover > ul.nav-links, &.open > ul.nav-links {
-        transition: all 0.25s ease-in-out;
-        opacity: 1;
-        width: $bar-width*5;
-        transform: translateX(15px);
-        pointer-events: auto;
-    }
-    
-    &:after, &:before {
-        content: "";
-        position: absolute;
-        width: $bar-width;
-        height: $bar-height;
-        background-color: $color2;
-        transition: all 0.25s ease-in-out;
-    }
-    
-    &:after {
-        top: $bar-height*2;
-    }
-    
-    &:before {
-        top: -$bar-height*2;
-    }
-    
-    &:hover, &.open {
-        background-color: transparent;
-    }
-    
-    &:hover::after, &:hover::before, &.open::after, &.open::before {
-        transition: all 0.3s ease-in-out;
-        width: $bar-width/2;
-    }
-    
-    &:hover::after, &.open::after {
-        transform: translate($bar-height/2, -7px) rotate(405deg);
-    }
-    
-    &:hover::before, &.open::before {
-        transform: translate($bar-height*2 ,17px) rotate(-405deg);
-    }
-    
-    
-    ul.nav-links {
-        margin: 0;
-        padding: $bar-width 0 0 0;
-        opacity: 0;
-        transform: translateX(-15px);
-        transition: all 0.25s ease-in-out;
-        position: absolute;
-        width: 0;
-        height: 0;
-        pointer-events: none;
-        
-        li {
-            width: 100%;
-            padding: 4px 8px;
-            list-style-type:none;
-            font-family: 'Raleway', sans-serif;
-            font-size: 25px;
-            text-transform: uppercase;
-            transition: all 0.25s ease-in-out;
-            border-left: 2px solid $color2;
-
-            &:hover, &.active {
-                color: $color3;
-                border-left: 2px solid $color3;
-            }
-        }
-    }
-    
+.top {
+  padding-top: 30px;
 }
-/*http://codepen.io/ajerez/pen/gpmRZO/*
+a img:hover{
+  opacity: 0.3;
+  background-color: black;
+}
+.bold {
+  font-weight: bold;
+}
+p {
+  font-size: 1.15em;
+}
+.grey {
+	background: #ccc;
+}
+.tall-grey {
+	height: 200px;
+	background: #ccc;
+}
+.top-padding {
+	padding-top: 75px;
+}
+.mainimg {
+	display: block;
+    	margin: auto;
+    	width: 50%;
+}
